@@ -1,3 +1,32 @@
+const yargs = require("yargs");
+const contact = require("./contact");
+
+yargs.command({
+  command: "add",
+  describe: "Menambahkan contact baru",
+  builder: {
+    nama: {
+      describe: "Nama Lengkap",
+      demandOption: true,
+      type: "string",
+    },
+    email: {
+      describe: "Email Lengkap",
+      demandOption: false,
+      type: "string",
+    },
+    noHP: {
+      describe: "nomor Handphone",
+      demandOption: true,
+      type: "string",
+    },
+  },
+  handler(argv) {
+    contact.simpanContact(argv.nama, argv.email, argv.noHP);
+  },
+});
+yargs.parse();
+
 // const fs = require("fs");
 // const { json } = require("stream/consumers");
 
@@ -56,8 +85,10 @@
 //   });
 // });
 
-const fs = require("fs");
+// const fs = require("fs");
 const { stdin } = require("process");
+const { type } = require("os");
+const { simpanContact } = require("./contact");
 
 // menuliskan string ke file scr synch
 // try {
@@ -82,23 +113,25 @@ const { stdin } = require("process");
 //   }
 //   console.log(data);
 // });
+// const contact = require("./contact");
 
-// membuat pertanyaan di terminal
-const readline = require("readline");
-const { json } = require("stream/consumers");
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+// const main = async () => {
+//   const nama = await contact.tulisPertanyaan("masukkan nama anda : ");
+//   const email = await contact.tulisPertanyaan("masukkan email anda :");
+//   const noHP = await contact.tulisPertanyaan("masukkan no HP anda :");
+//   contact.simpanContact(nama, email, noHP);
+// };
 
-rl.question("masukkan nama anda :", (nama) => {
-  rl.question("masukkan nomor hp anda :", (noHP) => {
-    const data = { nama, noHP };
-    const files = fs.readFileSync("data/contacts.json", "utf-8");
-    const contacts = JSON.parse(files);
-    contacts.push(data);
-    fs.writeFileSync("data/contacts.json", JSON.stringify(contacts));
-    console.log(`terima kasih, nama anda ${nama}, noHP ${noHP}`);
-    rl.close();
-  });
-}); 
+// main();
+
+// rl.question("masukkan nama anda :", (nama) => {
+//   rl.question("masukkan nomor hp anda :", (noHP) => {
+//     const data = { nama, noHP };
+//     const files = fs.readFileSync("data/contacts.json", "utf-8");
+//     const contacts = JSON.parse(files);
+//     contacts.push(data);
+//     fs.writeFileSync("data/contacts.json", JSON.stringify(contacts));
+//     console.log(`terima kasih, nama anda ${nama}, noHP ${noHP}`);
+//     rl.close();
+//   });
+// });
