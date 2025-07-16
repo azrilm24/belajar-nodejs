@@ -1,13 +1,18 @@
-// const validator = require("validator");
-// const chalk = require("chalk");
-// // console.log(validator.isEmail("aman@gmail.com"));
-// // console.log(validator.isMobilePhone("62909866237", "id-ID"));
-// // console.log(validator.isNumeric("0879866237", "id-ID"));
+const validator = require("validator");
+const chalk = require("chalk");
+// const email = "anom@gmail.com";
+// console.log(validator.isEmail(email));
+// console.log(validator.isMobilePhone("08879848484", "id-ID"));
+// console.log(validator.isNumeric("872323"));
 
-// // console.log(chalk.italic.bgBlueBright("hello world"));
-// // let pesan = chalk`halo semuanya {bgRed.black.halo} world!`;
-// // console.log(pesan);
-// console.log(chalk.italic.bgCyanBright("hello world!"));
-// console.log(chalk.bgWhite("maman"));
+// chalk
+// console.log(chalk.cyan.bgGreen.underline("hello world!"));
+// console.log(chalk.bgCyan.red("hello world!"));
+// console.log(chalk.bold("hello world!"));
+// console.log(chalk.italic("hello world!"))
+// console.log(chalk.underline("hello world!"));
+// console.log(chalk.underline("hello world!"));
 
+const pesan = chalk`lorem ipsum {bgBlue.green dolor} smolong smeng {strikethrough smaong} mongak`;
 
+console.log(pesan);
