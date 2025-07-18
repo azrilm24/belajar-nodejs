@@ -1,1 +1,4 @@
-[{"nama":"el","email":"el@gmail.com","noHP":"097665"},{"nama":"weil","email":"eiil@gmail.com","noHP":"0818472611"}]
+[
+  { "nama": "el", "email": "el@gmail.com", "noHP": "097665" },
+  { "nama": "weil", "email": "eiil@gmail.com", "noHP": "0818472611" }
+]
